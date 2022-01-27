@@ -14,9 +14,10 @@ namespace API_IHC.Controllers
             _logger = logger;
         }
 
-        //public IActionResult Index()
-        //{
-
-//        }
+        [HttpGet]
+        public void Index()
+        {
+            
+        }
     }
 }

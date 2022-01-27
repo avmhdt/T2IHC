@@ -28,6 +28,7 @@ namespace API_IHC.Controllers
             }
         }
 
+        [HttpGet]
         public List<Login> UsuariosValidos()
         {
             List<Login> listaUsuariosValidos = new List<Login>();

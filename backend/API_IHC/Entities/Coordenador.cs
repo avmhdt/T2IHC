@@ -2,8 +2,8 @@
 {
     public class Coordenador
     {
-        public string Nome  { get; set; }
-        public string Siape { get; set; }
-        public string Senha { get; set; }
+        public string Nome  { get; set; } = string.Empty;
+        public string Siape { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
     }
 }
