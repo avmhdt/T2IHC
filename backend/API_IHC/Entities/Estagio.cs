@@ -8,11 +8,12 @@ namespace API_IHC.Entities
         public string Empresa { get; set; }
         public DateTime DataInicio{ get; set;}
         public DateTime DataFim { get;}
-        public AlunoModel Aluno { get; set; }
+        public Aluno Aluno { get; set; }
 
         public Estagio()
         {
             this.Id = new Guid();
+            this.Aluno = new Aluno();
         }
     }
 }

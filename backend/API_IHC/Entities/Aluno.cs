@@ -2,9 +2,9 @@
 {
     public class Aluno
     {
-        public string Nome { get; set; }
-        public string Matricula { get; set; }
-        public string Curso { get; set; }
-        public string  Senha { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Matricula { get; set; } = string.Empty;
+        public string Curso { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
     }
 }
