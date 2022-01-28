@@ -8,12 +8,14 @@
           <p><b>Situação: </b>Ativo</p>
         </div>
         <div class="buttons-section">
-          <button class="secondary">Pedir renovação</button>
+          <router-link to="/renovar-estagio">
+            <button class="secondary">Pedir renovação</button>
+          </router-link>
           <button class="secondary">Alterar dados</button>
           <button class="secondary">Encerrar estágio</button>
         </div>
       </div>
-      <StudentTable />
+      <StudentTable v-if="showTable" />
     </div>
   </div>
 </template>
@@ -24,7 +26,12 @@ import StudentTable from '@/components/StudentTable.vue'
 
 export default {
   name: 'InternDetails',
-  props: {},
+  props: {
+    showTable: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
       companyName: 'UFJF'
