@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import api from '@/services/api.js'
 export default {
   name: 'Login',
   props: {},
@@ -22,8 +23,15 @@ export default {
   },
   components: {},
   methods: {
-    login () {
-      console.log('tentando logar')
+    async login () {
+      // const response = await api.post('/api/Login', {
+      //   Usuario: 'siape',
+      //   Senha: 'senha1'
+      // })
+
+      const response = await api.get('/api/Login')
+
+      console.log('tentando logar', response)
     }
   },
   created () {}
@@ -31,7 +39,6 @@ export default {
 </script>
 
 <style>
-
 .logo-login {
   width: 170px;
 }
@@ -42,10 +49,10 @@ export default {
   justify-content: center;
   min-height: 80vh;
 }
-.login-box h1{
-    font-size: 20px;
-    margin-bottom: 30px;
-    margin-top: -10px;
+.login-box h1 {
+  font-size: 20px;
+  margin-bottom: 30px;
+  margin-top: -10px;
 }
 .login-box form {
   display: flex;
@@ -56,7 +63,6 @@ export default {
   background-color: rgba(189, 191, 193, 0.4);
   max-width: 500px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-
 }
 .login-box form label {
   margin-bottom: 5px;
@@ -77,7 +83,6 @@ export default {
   margin-bottom: 10px;
 }
 .login-box form button {
-
   background-color: #a4291a;
   border: none;
   color: #fff;
@@ -86,6 +91,5 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 5px;
-
 }
 </style>
