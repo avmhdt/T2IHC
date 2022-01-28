@@ -13,18 +13,19 @@ namespace API_IHC.Repositories
             return listaUsuariosValidos;
         }
 
-        public bool DoLogin(Login login)
+        public bool DoLogin(string usuario, string senha)
         {
-            var loginValido = UsuariosValidos().Where(m => m.Usuario == login.Usuario && m.Senha == login.Senha).FirstOrDefault();
+            var loginValido = UsuariosValidos().Where(m => m.Usuario == usuario && m.Senha == senha).FirstOrDefault();
             if (loginValido != null)
                 return true;
             else
                 return false;
         }
 
-        public Usuario GetUsuario(Login login)
+        public Usuario GetUsuario(string usuario)
         {
-            if (login.TipoUsuario == Usuario.Aluno)
+           var user = UsuariosValidos().Where(u => u.Usuario == usuario).FirstOrDefault();
+            if (user.TipoUsuario == Usuario.Aluno)
                 return Usuario.Aluno;
             else
                 return Usuario.Coordenador;

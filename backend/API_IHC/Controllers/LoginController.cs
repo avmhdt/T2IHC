@@ -14,15 +14,16 @@ namespace API_IHC.Controllers
         public LoginController(ILogger<EstagioController> logger)
         {
             _logger = logger;
+            loginRepository = new InMemLoginRepository();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(Login login)
+        public async Task<IActionResult> Login(string usuario, string senha)
         {
-            var response = loginRepository.DoLogin(login); 
+            var response = loginRepository.DoLogin(usuario, senha); 
             if (response != true)
             {
-                var tipoUsuario = loginRepository.GetUsuario(login);
+                var tipoUsuario = loginRepository.GetUsuario(usuario);
                 if (tipoUsuario == Usuario.Aluno)
                     return Redirect("/Home/Aluno");
                 else
