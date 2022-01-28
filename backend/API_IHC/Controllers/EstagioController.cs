@@ -15,6 +15,7 @@ namespace API_IHC.Controllers
         public EstagioController(ILogger<EstagioController> logger)
         {
             _logger = logger;
+            estagioRepository = new InMemEstagioRepository();
         }
         
         [HttpGet]

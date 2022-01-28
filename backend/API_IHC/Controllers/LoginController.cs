@@ -1,4 +1,5 @@
 ﻿using API_IHC.Entities;
+using API_IHC.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_IHC.Controllers
@@ -8,34 +9,30 @@ namespace API_IHC.Controllers
     public class LoginController : ControllerBase
     {
         private readonly ILogger<EstagioController> _logger;
+        private readonly InMemLoginRepository loginRepository;
 
         public LoginController(ILogger<EstagioController> logger)
         {
             _logger = logger;
+            loginRepository = new InMemLoginRepository();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(Login login)
+        public async Task<IActionResult> Login(string usuario, string senha)
         {
-            var display = UsuariosValidos().Where(m => m.Usuario == login.Usuario && m.Senha == login.Senha).FirstOrDefault();
-            if (display != null)
+            var response = loginRepository.DoLogin(usuario, senha); 
+            if (response != true)
             {
-                return Redirect("/Home");
+                var tipoUsuario = loginRepository.GetUsuario(usuario);
+                if (tipoUsuario == Usuario.Aluno)
+                    return Redirect("/Home/Aluno");
+                else
+                    return Redirect("/Home/Coord");
             }
             else
             {
                 return Redirect("/Login/Error");
             }
-        }
-
-        [HttpGet]
-        public List<Login> UsuariosValidos()
-        {
-            List<Login> listaUsuariosValidos = new List<Login>();
-            listaUsuariosValidos.Add(new Login { Usuario = "siape", Senha = "senha1" });
-            listaUsuariosValidos.Add(new Login { Usuario = "matricula", Senha = "senha2" });
-            listaUsuariosValidos.Add(new Login { Usuario = "user3", Senha = "password3" });
-            return listaUsuariosValidos;
         }
     }
 }
