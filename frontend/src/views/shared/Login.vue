@@ -58,8 +58,12 @@ export default {
   components: {},
   methods: {
     async login () {
-      const response = await api.post('/api/Login', this.user)
-      console.log('tentando logar', response)
+      const { data } = await api.post('/api/Login', this.user)
+      console.log('tentando logar', data)
+      this.$store.commit('SET_USER', data)
+      if (data.tipoUsuario === 1) {
+        this.$router.push('/Home/Coord')
+      }
     }
   },
   created () {}
