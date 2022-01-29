@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <h1>Olá, {{ name }}!</h1>
+    <h1>Olá, {{ $store.state.name }}!</h1>
     <div class="search-input">
       <font-awesome-icon icon="search" />
       <input

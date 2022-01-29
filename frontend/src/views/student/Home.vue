@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div class="home-intro">
-      <h1>Olá, {{ name }}!</h1>
+      <h1>Olá, {{ $store.state.name }}!</h1>
       <div>
         <p class="my-info">Meus estágios</p>
         <div class="intern-info">
