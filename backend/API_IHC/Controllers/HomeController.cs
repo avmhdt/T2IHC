@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API_IHC.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]/[action]")]
     public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,7 +17,7 @@ namespace API_IHC.Controllers
         [HttpGet]
         public void Index()
         {
-            
+
         }
     }
 }

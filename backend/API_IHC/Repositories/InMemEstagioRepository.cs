@@ -7,15 +7,13 @@ namespace API_IHC.Repositories
     public class InMemEstagioRepository
     {
         private readonly List<Estagio> estagios;
+        private readonly InMemUsuarioRepository usuarioRepository;
 
         public InMemEstagioRepository()
         {
-            var aluno1 = new Aluno(); aluno1.Nome = "Mario"; aluno1.Matricula = "2020"; aluno1.Curso = "Engenharia Mecânica"; aluno1.TipoUsuario = Usuario.Aluno;
-            var aluno2 = new Aluno(); aluno2.Nome = "Lara Croft"; aluno2.Matricula = "1996"; aluno2.Curso = "Historia"; aluno2.TipoUsuario = Usuario.Aluno;
-
             this.estagios = new List<Estagio>();
-            estagios.Add(new Estagio() { Id = 001, Empresa = "Nintendo", DataInicio = DateTime.Now, Aluno = aluno1 });
-            estagios.Add(new Estagio() { Id = 002, Empresa = "Sony", DataInicio = DateTime.Now, Aluno = aluno2 });
+            estagios.Add(new Estagio() { Id = 001, Empresa = "Nintendo", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(12)}); 
+            estagios.Add(new Estagio() { Id = 002, Empresa = "Sony", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(6) });
         }
 
         public IEnumerable<Estagio> GetEstagios()
@@ -23,7 +21,7 @@ namespace API_IHC.Repositories
             return estagios.ToList();
         }
 
-        public Estagio GetEstagio(int id)
+        public Estagio GetEstagioById(int id)
         {
             return estagios.Where(estagio => estagio.Id == id).SingleOrDefault();
         }
@@ -37,6 +35,24 @@ namespace API_IHC.Repositories
             }
             else
                 return false;
+        }
+
+        public bool FinalizarEstagio(int id)
+        {
+            var estagio = estagios.Where(estagio => estagio.Id == id).SingleOrDefault();
+            if (estagio != null)
+            {
+                estagios.Remove(estagio);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public void UpdateEstagio(int id, DateTime novaDataFim)
+        {
+            var estagio = estagios.Where(estagio => estagio.Id == id).SingleOrDefault();
+            estagio.DataFim = novaDataFim;
         }
     }
 }

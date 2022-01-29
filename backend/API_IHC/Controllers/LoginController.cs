@@ -21,9 +21,9 @@ namespace API_IHC.Controllers
         public async Task<IActionResult> Login(string usuario, string senha)
         {
             var response = loginRepository.DoLogin(usuario, senha); 
-            if (response != true)
+            if (response)
             {
-                var tipoUsuario = loginRepository.GetUsuario(usuario);
+                var tipoUsuario = loginRepository.GetTipoUsuario(usuario);
                 if (tipoUsuario == Usuario.Aluno)
                     return Redirect("/Home/Aluno");
                 else

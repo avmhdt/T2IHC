@@ -22,9 +22,9 @@ namespace API_IHC.Repositories
                 return false;
         }
 
-        public Usuario GetUsuario(string usuario)
+        public Usuario GetTipoUsuario(string usuario)
         {
-           var user = UsuariosValidos().Where(u => u.Usuario == usuario).FirstOrDefault();
+           var user = UsuariosValidos().Where(u => u.Usuario == usuario).SingleOrDefault();
             if (user.TipoUsuario == Usuario.Aluno)
                 return Usuario.Aluno;
             else
