@@ -24,13 +24,17 @@ export default {
   components: {},
   methods: {
     async login () {
-      // const response = await api.post('/api/Login', {
-      //   Usuario: 'siape',
-      //   Senha: 'senha1'
-      // })
+      // const formData = new FormData()
+      // formData.append('usuario', 'coord')
+      // formData.append('senha', 'coord1')
+      // const response = await api.post('/api/Login', formData)
+      // const response = await api.get('/api/Estagio')
 
-      const response = await api.get('/api/Login')
-
+      const response = await api.post('/api/Login', {
+        usuario: 'coord',
+        senha: 'coord1'
+      })
+      // const response = await api.post('/api/Login', 'coord', 'coord1')
       console.log('tentando logar', response)
     }
   },
