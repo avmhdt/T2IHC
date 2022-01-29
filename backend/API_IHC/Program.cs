@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
          builder =>
          {
-             builder.WithOrigins("http://localhost:8080.com");
+             builder.WithOrigins("http://localhost:8080");
          });
 });
 
@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseCors(option => option.AllowAnyOrigin());
+    app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 }
 
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
