@@ -4,6 +4,7 @@ import Home from '@/views/student/Home.vue'
 import HomeCoord from '@/views/coordinator/Home.vue'
 import InternDetails from '@/views/student/InternDetails.vue'
 import RenewalProcess from '@/views/student/RenewalProcess.vue'
+import RegisterNew from '@/views/coordinator/RegisterNew.vue'
 import Login from '@/views/shared/Login.vue'
 
 Vue.use(VueRouter)
@@ -33,6 +34,11 @@ const routes = [
     path: '/renovar-estagio',
     name: 'RenewalProcess',
     component: RenewalProcess
+  },
+  {
+    path: '/novo-estagio',
+    name: 'RegisterNew',
+    component: RegisterNew
   }
 ]
 
