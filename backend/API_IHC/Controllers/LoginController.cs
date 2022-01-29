@@ -18,20 +18,20 @@ namespace API_IHC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string usuario, string senha)
+        public void Login(Login login)
         {
-            var response = loginRepository.DoLogin(usuario, senha); 
+            var response = loginRepository.DoLogin(login.Usuario, login.Senha); 
             if (response)
             {
-                var tipoUsuario = loginRepository.GetTipoUsuario(usuario);
+                var tipoUsuario = loginRepository.GetTipoUsuario(login.Usuario);
                 if (tipoUsuario == Usuario.Aluno)
-                    return Redirect("/Home/Aluno");
+                    Redirect("/Home/Aluno");
                 else
-                    return Redirect("/Home/Coord");
+                    Redirect("/Home/Coord");
             }
             else
             {
-                return Redirect("/Login/Error");
+                Redirect("/Login/Error");
             }
         }
     }
