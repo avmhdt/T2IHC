@@ -3,10 +3,38 @@
     <img src="@/assets/logo.png" alt="logo-ufjf" class="logo-login" />
     <form @submit.prevent="login">
       <h1>Sistema de coordenação de estágios</h1>
-      <label for="email">Matrícula / Siape</label>
-      <input type="email" name="email" id="email" />
+      <label for="text">Matrícula / Siape</label>
+      <input type="text" name="text" id="text" v-model="user.usuario" />
       <label for="password">Senha</label>
-      <input type="password" name="password" id="password" />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        v-model="user.senha"
+      />
+      <div class="choose-type">
+        <div>
+          <input
+            type="radio"
+            id="aluno"
+            name="tipoUsuario"
+            :value="0"
+            v-model="user.tipoUsuario"
+          />
+          <label for="aluno">Sou aluno</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="coordenador"
+            name="tipoUsuario"
+            :value="1"
+            v-model="user.tipoUsuario"
+          />
+          <label for="coordenador">Sou coordenador</label>
+        </div>
+      </div>
+
       <a href="">Esqueceu a senha?</a>
       <button type="submit">Entrar</button>
     </form>
@@ -19,22 +47,18 @@ export default {
   name: 'Login',
   props: {},
   data () {
-    return {}
+    return {
+      user: {
+        usuario: '',
+        senha: '',
+        tipoUsuario: 0
+      }
+    }
   },
   components: {},
   methods: {
     async login () {
-      // const formData = new FormData()
-      // formData.append('usuario', 'coord')
-      // formData.append('senha', 'coord1')
-      // const response = await api.post('/api/Login', formData)
-      // const response = await api.get('/api/Estagio')
-
-      const response = await api.post('/api/Login', {
-        usuario: 'coord',
-        senha: 'coord1'
-      })
-      // const response = await api.post('/api/Login', 'coord', 'coord1')
+      const response = await api.post('/api/Login', this.user)
       console.log('tentando logar', response)
     }
   },
@@ -95,5 +119,20 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 5px;
+}
+.choose-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.choose-type div {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.choose-type div input {
+  margin-top: 15px;
+  margin-right: 10px;
 }
 </style>
