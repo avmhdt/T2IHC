@@ -12,7 +12,6 @@ namespace API_IHC.Entities
         public Coordenador Coordenador { get; set; }
         public double ValorBolsa { get; set; }
         public int HorasSemanais { get; set; }
-        public Aluno Aluno { get; set; }
 
         public Estagio()
         {

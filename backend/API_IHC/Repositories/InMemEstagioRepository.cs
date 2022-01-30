@@ -8,13 +8,11 @@ namespace API_IHC.Repositories
     {
         public List<Estagio> estagios;
         private readonly InMemRelatorioRepository relatorioRepository;
-        private readonly InMemUsuarioRepository usuarioRepository;
 
         public InMemEstagioRepository()
         {
             this.estagios = new List<Estagio>();
             this.relatorioRepository = new InMemRelatorioRepository();
-            this.usuarioRepository = new InMemUsuarioRepository();
 
             estagios.Add(new Estagio()
             {
@@ -24,9 +22,8 @@ namespace API_IHC.Repositories
                 DataFim = DateTime.Now.AddMonths(12),
                 Relatorio = relatorioRepository.relatorios[0],
                 HorasSemanais = 30,
-                ValorBolsa = 300.00,
-                Aluno = usuarioRepository.alunos[0]
-            }); ; ; 
+                ValorBolsa = 300.00
+            }); 
                 
             estagios.Add(new Estagio() 
             { Id = 2, 
@@ -35,9 +32,7 @@ namespace API_IHC.Repositories
                 DataFim = DateTime.Now.AddMonths(6), 
                 Relatorio = relatorioRepository.relatorios[1],
                 HorasSemanais = 30,
-                ValorBolsa = 1000.00,
-                Aluno = usuarioRepository.alunos[1]
-
+                ValorBolsa = 1000.00
             });
         }
 

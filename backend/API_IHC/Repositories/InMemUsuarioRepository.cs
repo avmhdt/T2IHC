@@ -4,7 +4,7 @@ namespace API_IHC.Repositories
 {
     public class InMemUsuarioRepository
     {
-        public readonly List<Aluno> alunos;
+        private readonly List<Aluno> alunos;
         private readonly InMemEstagioRepository estagioRepository;
 
         public InMemUsuarioRepository()
