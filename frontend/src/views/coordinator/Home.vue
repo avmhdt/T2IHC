@@ -28,7 +28,6 @@ export default {
   props: {},
   data () {
     return {
-      name: 'Lorenza',
       search: '',
       estagios: []
     }
@@ -43,11 +42,10 @@ export default {
 </script>
 
 <style>
-.home-coord{
+.home-coord {
   display: grid;
   grid-template-columns: 15% 85%;
   gap: 30px;
-
 }
 
 .search-input input {
