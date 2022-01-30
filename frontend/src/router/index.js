@@ -23,7 +23,8 @@ const routes = [
   {
     path: '/details',
     name: 'InternDetails',
-    component: InternDetails
+    component: InternDetails,
+    props: true
   },
   {
     path: '/login',
