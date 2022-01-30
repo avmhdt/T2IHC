@@ -38,20 +38,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: rgba(0, 0, 0, 0.9);
-  overflow: hidden;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+body {
+  margin: 0;
 }
 
 button.primary {
