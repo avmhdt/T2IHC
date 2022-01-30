@@ -1,7 +1,7 @@
 <template>
   <div class="table-wrapper">
     <div class="table-details">
-      <p>Relatórios enviados</p>
+      <p>Lista de relatórios</p>
       <button class="primary">Submeter relatório</button>
     </div>
     <table>
@@ -12,37 +12,47 @@
         <th>Situação</th>
         <th class="without-padding">Ações</th>
       </tr>
-      <tr>
-        <td>001</td>
-        <td>02/05/2020</td>
-        <td>03/03/2021</td>
-        <td>Regular</td>
+
+      <!-- <tr v-for="item in relatorios" :key="item.id">
+        <td>{{ item.id }}</td>
+        <td>{{ format_date(item.dataEnvio) }}</td>
+        <td>{{ format_date(item.dataEntrega) }}</td>
+        <td>{{ item.situacao }}</td>
         <td class="without-padding"><button>Visualizar</button></td>
-      </tr>
+      </tr> -->
+
       <tr>
-        <td>001</td>
-        <td>02/05/2020</td>
-        <td>03/03/2021</td>
-        <td>Regular</td>
-        <td class="without-padding"><button>Visualizar</button></td>
-      </tr>
-      <tr>
-        <td>001</td>
-        <td>02/05/2020</td>
-        <td>03/03/2021</td>
-        <td>Regular</td>
-        <td class="without-padding"><button>Visualizar</button></td>
+        <td>{{ relatorios.id }}</td>
+        <td>{{ format_date(relatorios.dataEnvio) }}</td>
+        <td>{{ format_date(relatorios.dataEntrega) }}</td>
+        <td>{{ relatorios.situacao }}</td>
+        <td class="without-padding">
+          <button class="secondary">
+            <span v-if="relatorios.situacao == 'Pendente'">Enviar</span>
+            <span v-else>Visualizar</span>
+          </button>
+        </td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'StudentTable',
-  props: {},
+  props: {
+    relatorios: Object
+  },
   data () {
     return {}
+  },
+  methods: {
+    format_date (value) {
+      if (value) return moment(String(value)).format('DD/MM/YYYY')
+      return '-'
+    }
   }
 }
 </script>
@@ -69,5 +79,4 @@ table {
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
 </style>

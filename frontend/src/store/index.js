@@ -13,7 +13,9 @@ export default new Vuex.Store({
       if (payload) {
         state.name = payload.usuario
         state.typeofUser = payload.tipoUsuario
-        console.log(state)
+      } else {
+        state.name = ''
+        state.typeofUser = 0
       }
     }
   },

@@ -4,7 +4,7 @@
     <div>
       <div class="details">
         <div class="situation">
-          <h1>Estágio na empresa {{ companyName }}</h1>
+          <h1>Estágio na empresa {{ studentDetails.empresa }}</h1>
           <p><b>Situação: </b>Ativo</p>
         </div>
         <div class="buttons-section">
@@ -15,12 +15,13 @@
           <button class="secondary">Encerrar estágio</button>
         </div>
       </div>
-      <StudentTable v-if="showTable" />
+      <StudentTable v-if="showTable" :relatorios="relatorios" />
     </div>
   </div>
 </template>
 
 <script>
+import api from '@/services/api.js'
 import Header from '@/components/Header.vue'
 import StudentTable from '@/components/StudentTable.vue'
 
@@ -34,12 +35,20 @@ export default {
   },
   data () {
     return {
-      companyName: 'UFJF'
+      companyName: 'UFJF',
+      studentDetails: {},
+      relatorios: {}
     }
   },
   components: { Header, StudentTable },
   methods: {},
-  created () {}
+  async created () {
+    const { data } = await api.get(
+      `/api/Aluno/GetAlunoByUsername?username=${this.$store.state.name}`
+    )
+    this.studentDetails = data.estagio
+    this.relatorios = data.estagio.relatorio
+  }
 }
 </script>
 
