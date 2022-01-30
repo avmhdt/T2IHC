@@ -1,10 +1,8 @@
 <template>
   <nav>
     <Header />
-    <button>Visualizar notificações</button>
-    <router-link to="/novo-estagio">
-      <button>Cadastrar estágio</button></router-link
-    >
+    <a href="/Home/Coord" class="link-sidebar">Visualizar notificações</a>
+    <a href="/novo-estagio" class="link-sidebar">Cadastrar estágio</a>
   </nav>
 </template>
 
@@ -26,16 +24,19 @@ export default {
 nav {
   display: flex;
   flex-direction: column;
-  max-width: 200px;
+  max-width: 250px;
   background-color: #bdbfc1;
   height: 100vh;
-  /* top: 0; */
-  /* position: fixed; */
-  /* left: 0; */
-  /* display: block; */
 }
 
-nav button {
-  margin-top: 20px;
+.link-sidebar {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+  padding: 15px;
+}
+
+nav a:nth-of-type(2) {
+  margin-top: 60px;
 }
 </style>
