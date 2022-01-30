@@ -6,13 +6,15 @@ namespace API_IHC.Repositories
 {
     public class InMemEstagioRepository
     {
-        public  List<Estagio> estagios;
-        private readonly InMemUsuarioRepository usuarioRepository;
+        public List<Estagio> estagios;
+        private readonly InMemRelatorioRepository relatorioRepository;
 
         public InMemEstagioRepository()
         {
             this.estagios = new List<Estagio>();
-            estagios.Add(new Estagio() { Id = 001, Empresa = "Nintendo", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(12)}); 
+            this.relatorioRepository = new InMemRelatorioRepository();
+
+            estagios.Add(new Estagio() { Id = 001, Empresa = "Nintendo", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(12), Relatorio = relatorioRepository.relatorios[0]}); 
             estagios.Add(new Estagio() { Id = 002, Empresa = "Sony", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(6) });
         }
 
