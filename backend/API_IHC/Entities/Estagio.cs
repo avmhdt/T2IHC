@@ -12,8 +12,7 @@ namespace API_IHC.Entities
 
         public Estagio()
         {
-            Random rand = new Random();
-            this.Id = rand.Next(1, 1000);
+            
         }
     }
 }
