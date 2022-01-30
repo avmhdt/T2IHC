@@ -1,24 +1,26 @@
 <template>
-  <div>
-    <Header />
-    <h1>Olá, {{ $store.state.name }}!</h1>
-    <div class="search-input">
-      <font-awesome-icon icon="search" />
-      <input
-        type="text"
-        name="search"
-        placeholder="Procurar por aluno..."
-        v-model="search"
-        @keyup.enter="searchByName"
-      />
+  <div class="home-coord">
+    <Sidebar />
+    <div>
+      <h1>Olá, {{ $store.state.name }}!</h1>
+      <div class="search-input">
+        <font-awesome-icon icon="search" />
+        <input
+          type="text"
+          name="search"
+          placeholder="Procurar por aluno..."
+          v-model="search"
+          @keyup.enter="searchByName"
+        />
+      </div>
+      <InternsTable :interns="estagios" />
     </div>
-    <InternsTable :interns="estagios" />
   </div>
 </template>
 
 <script>
 import api from '@/services/api.js'
-import Header from '@/components/Header.vue'
+import Sidebar from '@/components/Sidebar.vue'
 import InternsTable from '@/components/InternsTable.vue'
 
 export default {
@@ -31,7 +33,7 @@ export default {
       estagios: []
     }
   },
-  components: { Header, InternsTable },
+  components: { Sidebar, InternsTable },
   methods: {},
   async created () {
     const { data } = await api.get('/api/Estagio/getEstagios')
@@ -41,6 +43,13 @@ export default {
 </script>
 
 <style>
+.home-coord{
+  display: grid;
+  grid-template-columns: 15% 85%;
+  gap: 30px;
+
+}
+
 .search-input input {
   height: 30px;
   width: 100%;

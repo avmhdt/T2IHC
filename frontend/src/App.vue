@@ -16,7 +16,13 @@ export default {
         this.$router.push('/login')
         return
       }
+
       this.$store.commit('SET_USER', userData)
+      // if (userData.tipoUsuario === 1) {
+      //   this.$router.push('/Home/Coord')
+      // } else {
+      //   this.$router.push('/')
+      // }
     }
   },
   created () {
@@ -32,6 +38,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
 }
 
 #nav {
