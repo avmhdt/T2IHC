@@ -1,21 +1,23 @@
 <template>
   <div>
     <Header />
-    <div>
-      <div class="details">
-        <div class="situation">
-          <h1>Estágio na empresa {{ studentDetails.empresa }}</h1>
-          <p><b>Situação: </b>Ativo</p>
+    <div class="wrapper-details">
+      <div class="intern-details-container">
+        <div class="details">
+          <div class="situation">
+            <h1>Estágio na empresa {{ studentDetails.empresa }}</h1>
+            <p><b>Situação: </b>Ativo</p>
+          </div>
+          <div class="buttons-section">
+            <router-link to="/renovar-estagio">
+              <button class="secondary">Pedir renovação</button>
+            </router-link>
+            <button class="secondary">Alterar dados</button>
+            <button class="secondary">Encerrar estágio</button>
+          </div>
         </div>
-        <div class="buttons-section">
-          <router-link to="/renovar-estagio">
-            <button class="secondary">Pedir renovação</button>
-          </router-link>
-          <button class="secondary">Alterar dados</button>
-          <button class="secondary">Encerrar estágio</button>
-        </div>
+        <StudentTable v-if="showTable" :relatorios="relatorios" />
       </div>
-      <StudentTable v-if="showTable" :relatorios="relatorios" />
     </div>
   </div>
 </template>
@@ -53,12 +55,19 @@ export default {
 </script>
 
 <style>
+.intern-details-container {
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 60px;
+}
 .details {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  max-width: 80%;
-  margin-left: 70px;
 }
 
 .situation {

@@ -1,16 +1,13 @@
 <template>
   <div class="table-wrapper">
-    <div class="table-details">
-      <p>Lista de relatórios</p>
-      <button class="primary">Submeter relatório</button>
-    </div>
+    <p class="table-details">Lista de relatórios</p>
     <table>
       <tr>
         <th>Número</th>
         <th>Data de envio</th>
         <th>Data de entrega</th>
         <th>Situação</th>
-        <th class="without-padding">Ações</th>
+        <th>Ações</th>
       </tr>
 
       <!-- <tr v-for="item in relatorios" :key="item.id">
@@ -26,7 +23,7 @@
         <td>{{ format_date(relatorios.dataEnvio) }}</td>
         <td>{{ format_date(relatorios.dataEntrega) }}</td>
         <td>{{ relatorios.situacao }}</td>
-        <td class="without-padding">
+        <td>
           <button class="secondary">
             <span v-if="relatorios.situacao == 'Pendente'">Enviar</span>
             <span v-else>Visualizar</span>
@@ -59,24 +56,18 @@ export default {
 
 <style>
 .table-wrapper {
-  width: 1160px;
-  margin-left: 220px;
   margin-top: 40px;
 }
-.table-wrapper td,
-.table-wrapper th {
-  padding-right: 195px;
-  padding-top: 10px;
-}
+
 .table-wrapper table {
   background-color: #bdbfc1;
   padding: 20px;
   padding-top: 10px;
+  width: 100%;
 }
 
 .table-details {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  text-align: left;
 }
 </style>
