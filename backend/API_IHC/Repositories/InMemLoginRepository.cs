@@ -13,9 +13,9 @@ namespace API_IHC.Repositories
             return listaUsuariosValidos;
         }
 
-        public bool DoLogin(string usuario, string senha)
+        public bool DoLogin(string usuario, string senha, Usuario tipo)
         {
-            var loginValido = UsuariosValidos().Where(m => m.Usuario == usuario && m.Senha == senha).FirstOrDefault();
+            var loginValido = UsuariosValidos().Where(m => m.Usuario == usuario && m.Senha == senha && m.TipoUsuario == tipo).FirstOrDefault();
             if (loginValido != null)
                 return true;
             else
