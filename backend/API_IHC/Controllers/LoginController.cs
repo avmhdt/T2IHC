@@ -20,7 +20,7 @@ namespace API_IHC.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            var loginTry = loginRepository.DoLogin(login.Usuario, login.Senha); 
+            var loginTry = loginRepository.DoLogin(login.Usuario, login.Senha, login.TipoUsuario); 
             if (loginTry)
             {
                 var tipoUsuario = loginRepository.GetTipoUsuario(login.Usuario);
