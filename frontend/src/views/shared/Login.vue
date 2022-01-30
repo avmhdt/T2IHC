@@ -18,7 +18,7 @@
             type="radio"
             id="aluno"
             name="tipoUsuario"
-            :value="0"
+            :value="1"
             v-model="user.tipoUsuario"
           />
           <label for="aluno">Sou aluno</label>
@@ -28,7 +28,7 @@
             type="radio"
             id="coordenador"
             name="tipoUsuario"
-            :value="1"
+            :value="0"
             v-model="user.tipoUsuario"
           />
           <label for="coordenador">Sou coordenador</label>
@@ -51,7 +51,7 @@ export default {
       user: {
         usuario: '',
         senha: '',
-        tipoUsuario: 0
+        tipoUsuario: 1
       }
     }
   },
@@ -64,12 +64,14 @@ export default {
         this.$store.commit('SET_USER', data)
         localStorage.setItem('knowledge_user', JSON.stringify(data))
 
-        if (data.tipoUsuario === 1) {
+        if (data.tipoUsuario === 0) {
           this.$router.push('/Home/Coord')
         } else {
           this.$router.push('/')
         }
-      } catch {}
+      } catch {
+        alert('ERRO AO LOGAR')
+      }
     }
   },
   created () {}
