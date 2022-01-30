@@ -2,12 +2,17 @@
   <div>
     <Header />
     <div class="home-intro">
-      <h1>Olá, {{ $store.state.name }}!</h1>
+      <h1>Olá, {{ studentDetails.nome }}!</h1>
       <div>
         <p class="my-info">Meus estágios</p>
         <div class="intern-info">
-          <p><b>Instituição concedente: </b>Nome da empresa aqui</p>
-          <p><b>Período de estágio: </b>06/06/2021 - Presente</p>
+          <p>
+            <b>Instituição concedente: </b> {{ studentDetails.estagio.empresa }}
+          </p>
+          <p>
+            <b>Período de estágio: </b>
+            {{ format_date(studentDetails.estagio.dataInicio) }} - Presente
+          </p>
           <p><b>Horas semanais: </b>30 horas</p>
           <p><b>Professor orientador: </b>André Luiz de Oliveira</p>
           <p><b>Valor da bolsa: </b>R$1000,00</p>
@@ -27,18 +32,33 @@
 </template>
 
 <script>
+import api from '@/services/api.js'
 import Header from '@/components/Header.vue'
+import moment from 'moment'
+
 export default {
   name: 'Home',
   props: {},
   data () {
     return {
-      name: 'Juliana'
+      studentDetails: {}
     }
   },
   components: { Header },
-  methods: {},
-  created () {}
+  methods: {
+    format_date (value) {
+      if (value) {
+        return moment(String(value)).format('DD/MM/YYYY')
+      }
+    }
+  },
+  async created () {
+    const { data } = await api.get(
+      `/api/Aluno/GetAlunoByUsername?username=${this.$store.state.name}`
+    )
+    this.studentDetails = data
+    console.log(this.studentDetails)
+  }
 }
 </script>
 
