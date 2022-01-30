@@ -64,11 +64,11 @@ export default {
   margin-top: 40px;
 }
 .table-wrapper td,
-th {
+.table-wrapper th {
   padding-right: 195px;
   padding-top: 10px;
 }
-table {
+.table-wrapper table {
   background-color: #bdbfc1;
   padding: 20px;
   padding-top: 10px;

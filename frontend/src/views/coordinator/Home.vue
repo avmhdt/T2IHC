@@ -1,19 +1,21 @@
 <template>
   <div class="home-coord">
     <Sidebar />
-    <div>
+    <div class="content">
       <h1>Olá, {{ $store.state.name }}!</h1>
-      <div class="search-input">
-        <font-awesome-icon icon="search" />
-        <input
-          type="text"
-          name="search"
-          placeholder="Procurar por aluno..."
-          v-model="search"
-          @keyup.enter="searchByName"
-        />
+      <div class="wrapper-home-coord">
+        <div class="search-input">
+          <font-awesome-icon icon="search" />
+          <input
+            type="text"
+            name="search"
+            placeholder="Procurar por aluno..."
+            v-model="search"
+            @keyup.enter="searchByName"
+          />
+        </div>
+        <InternsTable :interns="estagios" />
       </div>
-      <InternsTable :interns="estagios" />
     </div>
   </div>
 </template>
@@ -41,17 +43,27 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .home-coord {
   display: grid;
-  grid-template-columns: 15% 85%;
-  gap: 30px;
+  grid-template-columns: 300px 0.8fr;
+  gap: 70px;
+}
+
+.home-coord .content {
+  margin-top: 100px;
+  max-width: 100vw;
+}
+.content h1 {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .search-input input {
   height: 30px;
-  width: 100%;
+  width: 95%;
   padding: 10px 60px;
+  padding-right: 0;
   box-shadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.03);
   border: 0.5px solid rgba(0, 0, 0, 0.04);
   border-radius: 15px;
@@ -61,7 +73,8 @@ export default {
 }
 .search-input {
   position: relative;
-  width: 50%;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .search-input input::placeholder {
@@ -71,7 +84,7 @@ export default {
 .search-input svg {
   position: absolute;
   left: 0;
-  margin-top: 15px;
+  margin-top: 18px;
   margin-left: 20px;
   width: 20px;
 }

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <table>
+    <p class="interns">Estágios cadastrados</p>
+    <table class="interns-table">
       <tr>
         <th>Nome do aluno</th>
         <th>Nome da empresa</th>
         <th>Data de início</th>
         <th>Data de fim</th>
-        <th class="without-padding">Ações</th>
+        <th>Ações</th>
       </tr>
 
       <tr v-for="(item, index) in interns" :key="item.id">
@@ -14,7 +15,7 @@
         <td>{{ item.empresa }}</td>
         <td>{{ format_date(item.dataInicio) }}</td>
         <td>{{ format_date(item.dataFim) }}</td>
-        <td class="without-padding"><button>Visualizar</button></td>
+        <td><button class="primary">Visualizar</button></td>
       </tr>
     </table>
   </div>
@@ -42,4 +43,21 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.interns-table {
+  background-color: #bdbfc1;
+  padding: 20px;
+  padding-top: 10px;
+}
+.interns-table td {
+  padding-top: 20px;
+  margin-top: 60px;
+}
+table {
+  width: 100%;
+}
+.interns{
+  text-align: left;
+  margin-left: 5px;
+}
+</style>

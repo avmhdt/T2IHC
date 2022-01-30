@@ -135,6 +135,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
 .wrapper-register {
   width: 100%;
@@ -169,7 +170,7 @@ export default {
   margin-top: 40px;
   padding: 20px 0;
   justify-content: space-around;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 .duration div {
   background-color: #fff;
@@ -209,7 +210,7 @@ button.submit-register {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: 12px 70px;
+  padding: 15px 70px;
   margin-right: 150px;
   font-weight: bold;
   text-transform: uppercase;
