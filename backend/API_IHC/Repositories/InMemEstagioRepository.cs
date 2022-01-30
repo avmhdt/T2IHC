@@ -15,7 +15,7 @@ namespace API_IHC.Repositories
             this.relatorioRepository = new InMemRelatorioRepository();
 
             estagios.Add(new Estagio() { Id = 001, Empresa = "Nintendo", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(12), Relatorio = relatorioRepository.relatorios[0]}); 
-            estagios.Add(new Estagio() { Id = 002, Empresa = "Sony", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(6) });
+            estagios.Add(new Estagio() { Id = 002, Empresa = "Sony", DataInicio = DateTime.Now, DataFim = DateTime.Now.AddMonths(6), Relatorio = relatorioRepository.relatorios[2]});
         }
 
         public IEnumerable<Estagio> GetEstagios()

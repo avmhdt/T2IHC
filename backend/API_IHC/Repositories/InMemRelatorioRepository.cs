@@ -12,10 +12,15 @@ namespace API_IHC.Repositories
             relatorios.Add(new Relatorio { Id = 002, DataEntrega = DateTime.Now.AddDays(1), DataEnvio = DateTime.Today.ToString(), Situacao = "Enviado"});
 
         }
+        
+        public IEnumerable<Relatorio> GetRelatorios()
+        {
+            return relatorios;
+        }
 
-        //public Relatorio GetRelatorioById(int id)
-        //{
-
-        //}
+        public Relatorio GetRelatorioById(int id)
+        {
+            return relatorios.Where(relatorio => relatorio.Id == id).SingleOrDefault();
+        }
     }
 }
