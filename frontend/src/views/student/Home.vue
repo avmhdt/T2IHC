@@ -11,11 +11,20 @@
           </p>
           <p>
             <b>Período de estágio: </b>
-            {{ format_date(studentDetails.estagio.dataInicio) }} - Presente
+            {{ format_date(studentDetails.estagio.dataInicio) }} -
+            {{ format_date(studentDetails.estagio.dataFim) }}
           </p>
-          <p><b>Horas semanais: </b>30 horas</p>
-          <p><b>Professor orientador: </b>André Luiz de Oliveira</p>
-          <p><b>Valor da bolsa: </b>R$1000,00</p>
+          <p>
+            <b>Horas semanais: </b> {{ studentDetails.estagio.horasSemanais }}
+          </p>
+          <p>
+            <b>Professor orientador: </b
+            >{{ studentDetails.estagio.coordenador.nome }}
+          </p>
+          <p>
+            <b>Valor da bolsa: </b
+            >{{ formatCurrency(studentDetails.estagio.valorBolsa) }}
+          </p>
           <router-link to="/details">
             <button class="primary final">
               <span>Ver mais</span>
@@ -50,6 +59,12 @@ export default {
       if (value) {
         return moment(String(value)).format('DD/MM/YYYY')
       }
+    },
+    formatCurrency (value) {
+      return value.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+      })
     }
   },
   async created () {
