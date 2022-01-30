@@ -16,7 +16,7 @@ namespace API_IHC.Entities
         public Estagio()
         {
             Coordenador = new Coordenador();
-            Coordenador.Nome = "André Luiz De Oliveira";
+            Coordenador.Nome = "Andre Luiz De Oliveira";
         }
     }
 }
