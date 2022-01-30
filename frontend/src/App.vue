@@ -4,6 +4,27 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  methods: {
+    async validateToken () {
+      const json = localStorage.getItem('knowledge_user')
+      const userData = JSON.parse(json)
+
+      if (!userData) {
+        this.$router.push('/login')
+        return
+      }
+      this.$store.commit('SET_USER', userData)
+    }
+  },
+  created () {
+    this.validateToken()
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

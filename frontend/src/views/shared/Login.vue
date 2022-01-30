@@ -62,6 +62,8 @@ export default {
         const { data } = await api.post('/api/Login', this.user)
         console.log('tentando logar', data)
         this.$store.commit('SET_USER', data)
+        localStorage.setItem('knowledge_user', JSON.stringify(data))
+
         if (data.tipoUsuario === 1) {
           this.$router.push('/Home/Coord')
         } else {

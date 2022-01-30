@@ -10,9 +10,11 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_USER (state, payload) {
-      state.name = payload.usuario
-      state.typeofUser = payload.tipoUsuario
-      console.log(state)
+      if (payload) {
+        state.name = payload.usuario
+        state.typeofUser = payload.tipoUsuario
+        console.log(state)
+      }
     }
   },
   actions: {},
