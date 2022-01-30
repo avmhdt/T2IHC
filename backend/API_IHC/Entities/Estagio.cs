@@ -8,6 +8,7 @@ namespace API_IHC.Entities
         public string Empresa { get; set; } = string.Empty;
         public DateTime DataInicio { get; set; } = DateTime.Now;
         public DateTime DataFim { get; set; } = DateTime.Now;
+        public Relatorio Relatorio { get; set; }
 
         public Estagio()
         {
