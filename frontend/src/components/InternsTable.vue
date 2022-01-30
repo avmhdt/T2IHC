@@ -10,11 +10,11 @@
         <th>Ações</th>
       </tr>
 
-      <tr v-for="(item, index) in interns" :key="item.id">
-        <td>Aluno {{ index + 1 }}</td>
-        <td>{{ item.empresa }}</td>
-        <td>{{ format_date(item.dataInicio) }}</td>
-        <td>{{ format_date(item.dataFim) }}</td>
+      <tr v-for="item in interns" :key="item.id">
+        <td>{{ item.nome }}</td>
+        <td>{{ item.estagio.empresa }}</td>
+        <td>{{ format_date(item.estagio.dataInicio) }}</td>
+        <td>{{ format_date(item.estagio.dataFim) }}</td>
         <td><button class="primary">Visualizar</button></td>
       </tr>
     </table>

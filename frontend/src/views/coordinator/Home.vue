@@ -37,8 +37,9 @@ export default {
   components: { Sidebar, InternsTable },
   methods: {},
   async created () {
-    const { data } = await api.get('/api/Estagio/getEstagios')
+    const { data } = await api.get('/api/Aluno/GetAlunos')
     this.estagios = data
+    console.log(this.estagios)
   }
 }
 </script>
