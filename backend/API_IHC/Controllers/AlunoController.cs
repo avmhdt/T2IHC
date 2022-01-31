@@ -19,7 +19,7 @@ namespace API_IHC.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Aluno> GetAlunosTeste()
+        public IEnumerable<Aluno> GetAlunos()
         {
             return this.usuarioRepository.GetAlunos();
         }
