@@ -3,6 +3,7 @@
     <Header />
     <a href="/Home/Coord" class="link-sidebar">Visualizar notificações</a>
     <a href="/novo-estagio" class="link-sidebar">Cadastrar estágio</a>
+    <a href="" class="link-sidebar" @click="logout"> Sair</a>
   </nav>
 </template>
 
@@ -15,7 +16,12 @@ export default {
     return {}
   },
   components: { Header },
-  methods: {},
+  methods: {
+    logout () {
+      localStorage.removeItem('knowledge_user')
+      this.$router.push('/login')
+    }
+  },
   created () {}
 }
 </script>
@@ -39,7 +45,8 @@ nav a:nth-of-type(1) {
   margin-top: 50px;
 }
 
-nav a:nth-of-type(2) {
+nav a:nth-of-type(2),
+nav a:nth-of-type(3) {
   margin-top: 10px;
 }
 </style>
