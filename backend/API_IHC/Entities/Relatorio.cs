@@ -2,9 +2,9 @@
 {
     public class Relatorio
     {
-        public int Id { get; set; }
-        public DateTime DataEntrega { get; set; }
+        public int Id { get; set; } = 0;
+        public DateTime DataEntrega { get; set; } = DateTime.Now;
         public string DataEnvio { get; set; } = null;
-        public string Situacao { get; set; }
+        public string Situacao { get; set; } = "";
     }
 }
