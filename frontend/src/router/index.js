@@ -12,12 +12,18 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      requiresStudent: true
+    }
   },
   {
     path: '/Home/Coord',
     name: 'HomeCoord',
-    component: HomeCoord
+    component: HomeCoord,
+    meta: {
+      requiresAdmin: true
+    }
   },
   {
     path: '/details',
@@ -33,7 +39,10 @@ const routes = [
   {
     path: '/novo-estagio',
     name: 'RegisterNew',
-    component: RegisterNew
+    component: RegisterNew,
+    meta: {
+      requiresAdmin: true
+    }
   }
 ]
 
@@ -41,6 +50,19 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const json = localStorage.getItem('knowledge_user')
+  const user = JSON.parse(json)
+
+  if (to.matched.some((record) => record.meta.requiresAdmin)) {
+    user && user.tipoUsuario === 0 ? next() : next({ path: '/' })
+  } else if (to.matched.some((record) => record.meta.requiresStudent)) {
+    user && user.tipoUsuario === 1 ? next() : next({ path: '/Home/Coord' })
+  } else {
+    next()
+  }
 })
 
 export default router
