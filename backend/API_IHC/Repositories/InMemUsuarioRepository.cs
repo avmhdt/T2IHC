@@ -30,5 +30,25 @@ namespace API_IHC.Repositories
         {
             return alunos.Where(aluno => aluno.Usuario == username).SingleOrDefault();
         }
+
+        public List<string> GetNomeAlunos()
+        {
+            var nomes = new List<string>();
+            foreach(var aluno in alunos)
+            {
+                nomes.Add(aluno.Nome);
+            }
+            return nomes;
+        }
+
+        public List<string> GetUsuarioAlunos()
+        {
+            var nomes = new List<string>();
+            foreach (var aluno in alunos)
+            {
+                nomes.Add(aluno.Usuario);
+            }
+            return nomes;
+        }
     }
 }

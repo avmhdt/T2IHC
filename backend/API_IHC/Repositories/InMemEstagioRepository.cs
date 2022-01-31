@@ -8,6 +8,7 @@ namespace API_IHC.Repositories
     {
         public List<Estagio> estagios;
         private readonly InMemRelatorioRepository relatorioRepository;
+        private InMemUsuarioRepository usuarioRepository;
 
         public InMemEstagioRepository()
         {
@@ -22,8 +23,9 @@ namespace API_IHC.Repositories
                 DataFim = DateTime.Now.AddMonths(12),
                 Relatorio = relatorioRepository.relatorios[0],
                 HorasSemanais = 30,
-                ValorBolsa = 300.00
-            }); 
+                ValorBolsa = 300.00,
+               
+            }); ; 
                 
             estagios.Add(new Estagio() 
             { Id = 2, 
@@ -38,8 +40,20 @@ namespace API_IHC.Repositories
 
         public IEnumerable<Estagio> GetEstagios()
         {
-            return estagios.ToList();
+            this.usuarioRepository = new InMemUsuarioRepository();
+            var nomes = usuarioRepository.GetNomeAlunos().ToList();
+            var usuarios = usuarioRepository.GetUsuarioAlunos().ToList();
+            for (int i = 0; i < nomes.Count(); i++)
+            {
+                estagios[i].NomeAluno = nomes[i];
+                estagios[i].Usuario = usuarios[i];
+
+            }
+            
+            return this.estagios;
         }
+
+        
 
         public Estagio GetEstagioById(int id)
         {
