@@ -11,10 +11,10 @@
       </tr>
 
       <tr v-for="item in interns" :key="item.id">
-        <td>{{ item.nome }}</td>
-        <td>{{ item.estagio.empresa }}</td>
-        <td>{{ format_date(item.estagio.dataInicio) }}</td>
-        <td>{{ format_date(item.estagio.dataFim) }}</td>
+        <td>{{ item.nomeAluno }}</td>
+        <td>{{ item.empresa }}</td>
+        <td>{{ format_date(item.dataInicio) }}</td>
+        <td>{{ format_date(item.dataFim) }}</td>
         <td>
           <button class="primary" @click="changeRouter(item.usuario)">
             Visualizar

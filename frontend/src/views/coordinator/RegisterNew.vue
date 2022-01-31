@@ -78,7 +78,7 @@
             <div class="label-column">
               <label for="valor">Valor da bolsa</label>
               <input
-                type="text"
+                type="number"
                 name="valor"
                 id="valor"
                 placeholder="Valor da Bolsa (R$)"
@@ -130,7 +130,9 @@ export default {
         DataFim: null,
         Relatorio: null,
         HorasSemanais: 30,
-        ValorBolsa: 0
+        ValorBolsa: 0,
+        Usuario: 'teste',
+        NomeAluno: 'Juliana'
       }
     }
   },
