@@ -15,7 +15,11 @@
         <td>{{ item.estagio.empresa }}</td>
         <td>{{ format_date(item.estagio.dataInicio) }}</td>
         <td>{{ format_date(item.estagio.dataFim) }}</td>
-        <td><button class="primary">Visualizar</button></td>
+        <td>
+          <button class="primary" @click="changeRouter(item.usuario)">
+            Visualizar
+          </button>
+        </td>
       </tr>
     </table>
   </div>
@@ -37,6 +41,13 @@ export default {
       if (value) {
         return moment(String(value)).format('DD/MM/YYYY')
       }
+    },
+    changeRouter (item) {
+      console.log(item)
+      this.$router.push({
+        name: 'InternDetails',
+        params: { name: item }
+      })
     }
   },
   created () {}
@@ -56,7 +67,7 @@ export default {
 table {
   width: 100%;
 }
-.interns{
+.interns {
   text-align: left;
   margin-left: 5px;
 }

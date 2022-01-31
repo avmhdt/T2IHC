@@ -35,8 +35,11 @@ nav {
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
   padding: 15px;
 }
+nav a:nth-of-type(1) {
+  margin-top: 50px;
+}
 
 nav a:nth-of-type(2) {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 </style>

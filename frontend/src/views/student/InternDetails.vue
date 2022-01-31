@@ -6,6 +6,7 @@
         <div class="details">
           <div class="situation">
             <h1>Estágio na empresa {{ studentDetails.empresa }}</h1>
+            <h2>Aluno: {{ user }}</h2>
             <p><b>Situação: </b>Ativo</p>
           </div>
           <div class="buttons-section">
@@ -33,11 +34,11 @@ export default {
     showTable: {
       type: Boolean,
       default: true
-    }
+    },
+    name: String
   },
   data () {
     return {
-      companyName: 'UFJF',
       studentDetails: {},
       relatorios: {}
     }
@@ -46,8 +47,9 @@ export default {
   methods: {},
   async created () {
     const { data } = await api.get(
-      `/api/Aluno/GetAlunoByUsername?username=${this.$store.state.name}`
+      `/api/Aluno/GetAlunoByUsername?username=${this.name}`
     )
+    this.user = data.nome
     this.studentDetails = data.estagio
     this.relatorios = data.estagio.relatorio
   }
