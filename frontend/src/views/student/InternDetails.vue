@@ -10,20 +10,20 @@
             <p><b>Situação: </b>Ativo</p>
           </div>
           <div class="buttons-section">
-            <router-link
-              :to="{
-                name: 'RenewalProcess',
-                params: { name: name }
-              }"
+            <button
+              class="secondary"
               v-if="$store.state.typeofUser"
+              @click="showTable = !showTable"
             >
-              <button class="secondary">Pedir renovação</button>
-            </router-link>
+              <span v-if="showTable">Pedir renovação</span>
+              <span v-else>Ver relatórios</span>
+            </button>
             <button class="secondary">Alterar dados</button>
             <button class="secondary">Encerrar estágio</button>
           </div>
         </div>
         <StudentTable v-if="showTable" :relatorios="relatorios" />
+        <RenewalProcess v-else />
       </div>
     </div>
   </div>
@@ -33,6 +33,7 @@
 import api from '@/services/api.js'
 import Header from '@/components/Header.vue'
 import StudentTable from '@/components/StudentTable.vue'
+import RenewalProcess from '@/views/student/RenewalProcess.vue'
 
 export default {
   name: 'InternDetails',
@@ -50,7 +51,7 @@ export default {
       user: ''
     }
   },
-  components: { Header, StudentTable },
+  components: { Header, RenewalProcess, StudentTable },
   methods: {},
   async created () {
     const { data } = await api.get(

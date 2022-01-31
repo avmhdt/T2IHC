@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Home from '@/views/student/Home.vue'
 import HomeCoord from '@/views/coordinator/Home.vue'
 import InternDetails from '@/views/student/InternDetails.vue'
-import RenewalProcess from '@/views/student/RenewalProcess.vue'
 import RegisterNew from '@/views/coordinator/RegisterNew.vue'
 import Login from '@/views/shared/Login.vue'
 
@@ -30,12 +29,6 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
-  },
-  {
-    path: '/renovar-estagio',
-    name: 'RenewalProcess',
-    component: RenewalProcess,
-    props: true
   },
   {
     path: '/novo-estagio',

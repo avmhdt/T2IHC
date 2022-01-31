@@ -1,6 +1,5 @@
 <template>
   <div class="renewal">
-    <InternDetails :showTable="false" :name="name" />
     <div class="submit-renewal">
       <p>Renovar Estágio</p>
       <div class="input-file">
@@ -20,20 +19,8 @@
 </template>
 
 <script>
-import InternDetails from '@/views/student/InternDetails.vue'
 export default {
-  name: 'RenewalProcess',
-  props: {
-    name: String
-  },
-  data () {
-    return {}
-  },
-  components: {
-    InternDetails
-  },
-  methods: {},
-  created () {}
+  name: 'RenewalProcess'
 }
 </script>
 
@@ -41,7 +28,6 @@ export default {
 .submit-renewal {
   display: flex;
   flex-direction: column;
-  width: 78%;
   background-color: #bdbfc1;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.45);
