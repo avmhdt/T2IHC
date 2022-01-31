@@ -8,7 +8,7 @@ namespace API_IHC.Entities
         public string Empresa { get; set; } = string.Empty;
         public DateTime DataInicio { get; set; } = DateTime.Now;
         public DateTime DataFim { get; set; } = DateTime.Now;
-        public Relatorio Relatorio { get; set; }
+        public Relatorio? Relatorio { get; set; }
         public Coordenador Coordenador { get; set; }
         public double ValorBolsa { get; set; }
         public int HorasSemanais { get; set; }
