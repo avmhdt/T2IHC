@@ -48,12 +48,11 @@ export default {
 
 .header {
   max-width: 100%;
-  border-bottom: 4px solid rgba(164, 41, 26, 1);
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
   align-items: center;
-  padding: 8px 60px;
+  padding: 12px 60px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .header p {
