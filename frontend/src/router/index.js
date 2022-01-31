@@ -34,7 +34,8 @@ const routes = [
   {
     path: '/renovar-estagio',
     name: 'RenewalProcess',
-    component: RenewalProcess
+    component: RenewalProcess,
+    props: true
   },
   {
     path: '/novo-estagio',

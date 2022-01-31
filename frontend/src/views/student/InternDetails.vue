@@ -10,7 +10,13 @@
             <p><b>Situação: </b>Ativo</p>
           </div>
           <div class="buttons-section">
-            <router-link to="/renovar-estagio" v-if="$store.typeofUser">
+            <router-link
+              :to="{
+                name: 'RenewalProcess',
+                params: { name: name }
+              }"
+              v-if="$store.state.typeofUser"
+            >
               <button class="secondary">Pedir renovação</button>
             </router-link>
             <button class="secondary">Alterar dados</button>

@@ -1,9 +1,9 @@
 <template>
   <div class="renewal">
-    <InternDetails :showTable="false" />
+    <InternDetails :showTable="false" :name="name" />
     <div class="submit-renewal">
       <p>Renovar Estágio</p>
-      <p>Submeter Pedido de Renovação</p>
+      <!-- <p>Submeter Pedido de Renovação</p> -->
       <div class="input-file">
         <input type="file" name="file" id="file" ref="file" required />
         <!-- <label for="file">Selecionar arquivo</label> -->
@@ -24,7 +24,9 @@
 import InternDetails from '@/views/student/InternDetails.vue'
 export default {
   name: 'RenewalProcess',
-  props: {},
+  props: {
+    name: String
+  },
   data () {
     return {}
   },
@@ -52,22 +54,19 @@ export default {
 }
 .submit-renewal p {
   text-align: left;
-  margin-left: -10px;
+  margin-left: -20px;
 }
 .submit-renewal p:first-of-type {
-  margin-top: -55px;
-}
-.submit-renewal p:nth-of-type(2) {
-  padding-top: 10px;
-  margin-bottom: 20px;
+  margin-top: -60px;
 }
 
 .input-file {
-  width: 95%;
+  width: 93%;
   background-color: #fff;
   margin-bottom: 30px;
   margin-left: 40px;
   padding: 10px;
+  margin-top: 30px;
 }
 .input-file input {
   border: none;

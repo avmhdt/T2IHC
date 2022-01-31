@@ -138,11 +138,9 @@ export default {
   methods: {
     async createEstagio () {
       try {
-        const response = await api.post(
-          '/api/Estagio/CadastrarEstagio',
-          this.estagio
-        )
-        console.log(response)
+        await api.post('/api/Estagio/CadastrarEstagio', this.estagio)
+        alert('Cadastro realizado com sucesso! Você será redirecionado')
+        this.$router.push('/Home/Coord')
       } catch {
         alert('Não foi possível cadastrar esse estágio!')
       }
