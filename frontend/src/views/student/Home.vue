@@ -25,7 +25,9 @@
             <b>Valor da bolsa: </b
             >{{ formatCurrency(studentDetails.estagio.valorBolsa) }}
           </p>
-          <router-link to="/details">
+          <router-link
+            :to="{ name: 'InternDetails', params: { name: $store.state.name } }"
+          >
             <button class="primary final">
               <span>Ver mais</span>
               <img

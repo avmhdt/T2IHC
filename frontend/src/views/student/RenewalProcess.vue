@@ -1,13 +1,12 @@
 <template>
-  <div>
+  <div class="renewal">
     <InternDetails :showTable="false" />
     <div class="submit-renewal">
       <p>Renovar Estágio</p>
-
       <p>Submeter Pedido de Renovação</p>
-      <div>
+      <div class="input-file">
         <input type="file" name="file" id="file" ref="file" required />
-        <label for="file">Selecionar arquivo</label>
+        <!-- <label for="file">Selecionar arquivo</label> -->
       </div>
       <textarea
         name=""
@@ -41,26 +40,53 @@ export default {
 .submit-renewal {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  width: 78%;
   background-color: #bdbfc1;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.45);
   padding: 30px;
+  display: block;
+  margin: 0 auto;
   margin-top: 40px;
+  position: relative;
 }
 .submit-renewal p {
-  align-self: flex-start;
+  text-align: left;
+  margin-left: -10px;
 }
 .submit-renewal p:first-of-type {
-  margin-top: -60px;
+  margin-top: -55px;
+}
+.submit-renewal p:nth-of-type(2) {
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.input-file {
+  width: 95%;
+  background-color: #fff;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  padding: 10px;
+}
+.input-file input {
+  border: none;
+  width: 100%;
 }
 
 .submit-renewal button {
-  align-self: flex-end;
-  margin-top: 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 70px;
+  margin-bottom: 15px;
+  padding: 12px 50px;
 }
 textarea {
   padding: 30px;
   outline: none;
+  width: 90%;
+  margin-bottom: 60px;
+  border: 1px solid #bfbfbf;
 }
 </style>
