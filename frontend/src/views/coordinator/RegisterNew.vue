@@ -128,7 +128,8 @@ export default {
 .with-sidebar {
   display: grid;
   grid-template-columns: 15% 85%;
-  gap: 0;
+  gap: 20px;
+  overflow: hidden;
 }
 
 .container-register {
