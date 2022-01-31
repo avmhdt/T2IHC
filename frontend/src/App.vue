@@ -16,13 +16,7 @@ export default {
         this.$router.push('/login')
         return
       }
-
       this.$store.commit('SET_USER', userData)
-      // if (userData.tipoUsuario === 0) {
-      //   this.$router.push('/Home/Coord')
-      // } else {
-      //   this.$router.push('/')
-      // }
     }
   },
   created () {
