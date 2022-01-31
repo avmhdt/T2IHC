@@ -16,10 +16,11 @@ namespace API_IHC.Controllers
         {
             _logger = logger;
             estagioRepository = new InMemEstagioRepository();
-        }
+
+    }
 
         [HttpGet]
-        public IEnumerable<Estagio> GetEstagios()
+        public IEnumerable<Estagio> GetAllEstagios()
         {
             return this.estagioRepository.GetEstagios();
         }
