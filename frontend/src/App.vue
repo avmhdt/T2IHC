@@ -18,11 +18,11 @@ export default {
       }
 
       this.$store.commit('SET_USER', userData)
-      // if (userData.tipoUsuario === 1) {
-      //   this.$router.push('/Home/Coord')
-      // } else {
-      //   this.$router.push('/')
-      // }
+      if (userData.tipoUsuario === 0) {
+        this.$router.push('/Home/Coord')
+      } else {
+        this.$router.push('/')
+      }
     }
   },
   created () {
