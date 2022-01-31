@@ -60,6 +60,10 @@ button.secondary {
   font-weight: bold;
 }
 
+button.secondary:hover{
+  background: #D8D8D8;
+}
+
 button:hover {
   cursor: pointer;
 }
