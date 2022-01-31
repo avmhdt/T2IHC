@@ -8,7 +8,7 @@
     <router-link to="/">
       <img src="@/assets/logo2.png" alt="Logo da UFJF" class="logo" />
     </router-link>
-    <p>Universidade Federal de Juiz de Fora</p>
+    <!-- <p>Universidade Federal de Juiz de Fora</p> -->
     <button class="secondary" @click="logout">SAIR</button>
   </div>
 </template>
@@ -48,17 +48,16 @@ export default {
 
 .header {
   max-width: 100%;
-  background-color: rgba(164, 41, 26, 0.9);
+  border-bottom: 4px solid rgba(164, 41, 26, 1);
   display: flex;
   justify-content: space-between;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 5px;
   margin-bottom: 50px;
   align-items: center;
+  padding: 8px 60px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .header p {
-  color: #fff;
+  color: #000;
   font-size: 18px;
 }
 </style>

@@ -3,7 +3,6 @@
     <InternDetails :showTable="false" :name="name" />
     <div class="submit-renewal">
       <p>Renovar Estágio</p>
-      <!-- <p>Submeter Pedido de Renovação</p> -->
       <div class="input-file">
         <input type="file" name="file" id="file" ref="file" required />
         <!-- <label for="file">Selecionar arquivo</label> -->
@@ -51,6 +50,7 @@ export default {
   margin: 0 auto;
   margin-top: 40px;
   position: relative;
+  margin-top: 80px;
 }
 .submit-renewal p {
   text-align: left;
