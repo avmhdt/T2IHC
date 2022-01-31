@@ -46,7 +46,8 @@ export default {
   data () {
     return {
       studentDetails: {},
-      relatorios: {}
+      relatorios: {},
+      user: ''
     }
   },
   components: { Header, StudentTable },
