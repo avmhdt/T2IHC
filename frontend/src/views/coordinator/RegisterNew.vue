@@ -45,6 +45,7 @@
                 id="nome"
                 placeholder="Nome"
                 class="big-input"
+                v-model="estagio.Empresa"
               />
             </div>
             <input type="text" name="" id="" placeholder="CNPJ" />
@@ -71,6 +72,7 @@
                 name="horas"
                 id="horas"
                 placeholder="Horas semanais"
+                v-model="estagio.HorasSemanais"
               />
             </div>
             <div class="label-column">
@@ -80,6 +82,7 @@
                 name="valor"
                 id="valor"
                 placeholder="Valor da Bolsa (R$)"
+                v-model="estagio.ValorBolsa"
               />
             </div>
           </div>
@@ -88,15 +91,22 @@
         <div class="duration">
           <div>
             <label for="inicio">Data de início</label>
-            <input type="date" name="inicio" id="inicio" />
+            <input
+              type="date"
+              name="inicio"
+              id="inicio"
+              v-model="estagio.DataInicio"
+            />
           </div>
           <input type="number" name="" id="" placeholder="Duração" />
           <div>
             <label for="fim">Data de fim</label>
-            <input type="date" name="fim" id="fim" />
+            <input type="date" name="fim" id="fim" v-model="estagio.DataFim" />
           </div>
         </div>
-        <button class="primary submit-register">Cadastrar Estágio</button>
+        <button class="primary submit-register" @click="createEstagio">
+          Cadastrar Estágio
+        </button>
       </div>
     </div>
   </div>
@@ -112,11 +122,32 @@ export default {
   data () {
     return {
       allStudents: [],
-      select: ''
+      select: '',
+      estagio: {
+        Id: 3,
+        Empresa: '',
+        DataInicio: null,
+        DataFim: null,
+        Relatorio: null,
+        HorasSemanais: 30,
+        ValorBolsa: 0
+      }
     }
   },
   components: { Sidebar },
-  methods: {},
+  methods: {
+    async createEstagio () {
+      try {
+        const response = await api.post(
+          '/api/Estagio/CadastrarEstagio',
+          this.estagio
+        )
+        console.log(response)
+      } catch {
+        alert('Não foi possível cadastrar esse estágio!')
+      }
+    }
+  },
   async created () {
     const { data } = await api.get('/api/Aluno/GetAlunos')
     this.allStudents = data
@@ -161,6 +192,7 @@ export default {
   background-color: #bdbfc1;
   width: 90%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.45);
+  flex-wrap: wrap-reverse;
 }
 .company-details {
   margin-top: 40px;
@@ -172,6 +204,7 @@ export default {
   padding: 20px 0;
   justify-content: space-around;
   margin-bottom: 70px;
+  flex-wrap: wrap-reverse;
 }
 .duration div {
   background-color: #fff;
